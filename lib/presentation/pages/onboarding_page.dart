@@ -1,9 +1,8 @@
-import 'package:car_rental_app/presentation/pages/car_details_page.dart';
 import 'package:flutter/material.dart';
 
 import 'car_list_screen.dart';
 
-class OnboardingPage extends StatelessWidget{
+class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
   @override
@@ -19,9 +18,9 @@ class OnboardingPage extends StatelessWidget{
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/onboarding.png'),
-                  fit: BoxFit.cover
-                )
+                  image: AssetImage('assets/onboarding.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -29,42 +28,54 @@ class OnboardingPage extends StatelessWidget{
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Premium cars.. \n Enjoy the Luxury',
-                    style: TextStyle(color: Colors.black54,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Premium cars.. \n Enjoy the Luxury',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 10,),
-                    Text('Premium and Prestige car daily rental. \n Experience the thrill at a lower price',
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Premium and Prestige car daily rental. \n Experience the thrill at a lower price',
                     style: TextStyle(color: Colors.grey, fontSize: 16),
-                    ),
+                  ),
 
-                    SizedBox(height: 20,),
-                    SizedBox(
-                      width: 320,
-                      height: 54,
-                      child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => CarDetailsPage()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black,
-                            backgroundColor: Colors.white
+                  SizedBox(height: 20),
+                  SizedBox(
+                    width: 320,
+                    height: 54,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => CarListScreen(),
                           ),
-                          child: Text('Let\'s Go',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),)),
-                    )
-                  ],
+                          (route) => false,
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.white,
+                      ),
+                      child: Text(
+                        'Let\'s Go',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          
         ],
       ),
     );
   }
-
 }
