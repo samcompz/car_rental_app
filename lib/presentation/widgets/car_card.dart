@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../dart/models/Car.dart';
+import '../pages/car_details_page.dart';
 
 class CarCard extends StatelessWidget {
   final Car car;
@@ -10,8 +10,13 @@ class CarCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CarDetailsPage(car: car)),
+        );
+      },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         padding: EdgeInsets.all(20),
@@ -19,12 +24,8 @@ class CarCard extends StatelessWidget {
           color: Color(0xffF3F3F3),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
-            BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-            spreadRadius: 5
-          )
-          ]
+            BoxShadow(color: Colors.black12, blurRadius: 10, spreadRadius: 5),
+          ],
         ),
         child: Column(
           children: [
@@ -51,7 +52,10 @@ class CarCard extends StatelessWidget {
                         Text('${car.fuelCapacity.toStringAsFixed(0)}L'),
                       ],
                     ),
-                    Text('\$${car.pricePerDay.toStringAsFixed(2)}/h', style: TextStyle(fontSize: 16),),
+                    Text(
+                      '\$${car.pricePerDay.toStringAsFixed(2)}/h',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ],
                 ),
               ],
