@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../dart/models/Car.dart';
+import '../../data/models/Car.dart';
 import '../pages/car_details_page.dart';
 
 class CarCard extends StatelessWidget {
@@ -53,7 +53,7 @@ class CarCard extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      '\$${car.pricePerDay.toStringAsFixed(2)}/h',
+                      '\$${car.pricePerHour.toStringAsFixed(2)}/h',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],

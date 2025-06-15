@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../dart/models/Car.dart';
+
+import '../../data/models/Car.dart';
 import '../widgets/car_card.dart';
 import '../widgets/more_card.dart';
 import 'maps_details_page.dart';
@@ -54,14 +55,10 @@ class _CarDetailsPageState extends State<CarDetailsPage>
         children: [
           CarCard(
             car: Car(
-              id: widget.car.id,
-              make: widget.car.make,
               model: widget.car.model,
-              year: widget.car.year,
               distance: widget.car.distance,
               fuelCapacity: widget.car.fuelCapacity,
-              color: widget.car.color,
-              pricePerDay: widget.car.pricePerDay,
+              pricePerHour: widget.car.pricePerHour,
             ),
           ),
 
@@ -147,40 +144,28 @@ class _CarDetailsPageState extends State<CarDetailsPage>
               children: [
                 MoreCard(
                   car: Car(
-                    id: widget.car.id,
-                    make: widget.car.make,
                     model: widget.car.model,
-                    year: widget.car.year,
                     distance: widget.car.distance,
                     fuelCapacity: widget.car.fuelCapacity,
-                    color: widget.car.color,
-                    pricePerDay: widget.car.pricePerDay,
+                    pricePerHour: widget.car.pricePerHour,
                   ),
                 ),
                 SizedBox(height: 5),
                 MoreCard(
                   car: Car(
-                    id: widget.car.id,
-                    make: widget.car.make,
                     model: widget.car.model,
-                    year: widget.car.year,
                     distance: widget.car.distance,
                     fuelCapacity: widget.car.fuelCapacity,
-                    color: widget.car.color,
-                    pricePerDay: widget.car.pricePerDay,
+                    pricePerHour: widget.car.pricePerHour,
                   ),
                 ),
                 SizedBox(height: 5),
                 MoreCard(
                   car: Car(
-                    id: widget.car.id,
-                    make: widget.car.make,
                     model: widget.car.model,
-                    year: widget.car.year,
                     distance: widget.car.distance,
                     fuelCapacity: widget.car.fuelCapacity,
-                    color: widget.car.color,
-                    pricePerDay: widget.car.pricePerDay,
+                    pricePerHour: widget.car.pricePerHour,
                   ),
                 ),
               ],

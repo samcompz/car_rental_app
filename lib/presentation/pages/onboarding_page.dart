@@ -25,53 +25,51 @@ class OnboardingPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Premium cars.. \n Enjoy the Luxury',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Premium cars.. \n Enjoy the Luxury',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Premium and Prestige car daily rental. \n Experience the thrill at a lower price',
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
-                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Premium and Prestige car daily rental. \n Experience the thrill at a lower price',
+                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                ),
 
-                  SizedBox(height: 20),
-                  SizedBox(
-                    width: 320,
-                    height: 54,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                            builder: (context) => CarListScreen(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        backgroundColor: Colors.white,
-                      ),
-                      child: Text(
-                        'Let\'s Go',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                SizedBox(height: 20),
+                SizedBox(
+                  width: 320,
+                  height: 54,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => CarListScreen(),
                         ),
+                        (route) => false,
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.white,
+                    ),
+                    child: Text(
+                      'Let\'s Go',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

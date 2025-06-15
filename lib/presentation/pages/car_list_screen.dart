@@ -1,51 +1,38 @@
 import 'package:car_rental_app/presentation/widgets/car_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../dart/models/Car.dart';
+import '../../data/models/Car.dart';
+import '../bloc/car_bloc.dart';
+import '../bloc/car_state.dart';
 
 class CarListScreen extends StatelessWidget {
   CarListScreen({super.key});
 
   final List<Car> cars = [
     Car(
-      id: '12',
-      make: 'Macedes',
       model: 'S Class',
-      year: 2012,
       distance: 589,
-      fuelCapacity: 458,
-      color: 'White',
-      pricePerDay: 1000,
+      fuelCapacity: 3000,
+      pricePerHour: 1000,
     ),
     Car(
-      id: '12',
-      make: 'Macedes',
-      model: 'S Class',
-      year: 2012,
-      distance: 589,
+      model: 'E Class',
+      distance: 500000,
       fuelCapacity: 458,
-      color: 'White',
-      pricePerDay: 1000,
+      pricePerHour: 8000,
     ),
     Car(
-      id: '12',
-      make: 'Macedes',
-      model: 'S Class',
-      year: 2012,
-      distance: 589,
-      fuelCapacity: 458,
-      color: 'White',
-      pricePerDay: 1000,
+      model: 'Maybach Class',
+      distance: 2569000,
+      fuelCapacity: 2000,
+      pricePerHour: 5000,
     ),
     Car(
-      id: '12',
-      make: 'Macedes',
-      model: 'S Class',
-      year: 2012,
-      distance: 589,
-      fuelCapacity: 458,
-      color: 'White',
-      pricePerDay: 1000,
+      model: 'C Class',
+      distance: 580009,
+      fuelCapacity: 8000,
+      pricePerHour: 20000,
     ),
   ];
 
@@ -57,10 +44,21 @@ class CarListScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
-      body: ListView.builder(
-        itemCount: cars.length,
-        itemBuilder: (context, index) {
-          return CarCard(car: cars[index]);
+      body: BlocBuilder<CarBloc, CarState>(
+        builder: (context, state) {
+          if (state is CarsLoading) {
+            return Center(child: CircularProgressIndicator());
+          } else if (state is CarsLoaded) {
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                return CarCard(car: state.cars[index]);
+              },
+              itemCount: state.cars.length,
+            );
+          } else if (state is CarsError) {
+            return Center(child: Text("Error: ${state.message}"));
+          }
+          return Container();
         },
       ),
     );
